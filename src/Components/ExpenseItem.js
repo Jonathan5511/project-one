@@ -1,5 +1,12 @@
 function ExpenseItem(){
-    return <p>This is expense item!</p>
+    return( <ul>
+        <li>Food - $5</li>
+        <li>Petrol - $20</li>
+        <li>Movie - $10</li>
+    </ul>
+    
+    );
+    
 }
 
 export default ExpenseItem
