@@ -3,6 +3,17 @@ import { useState } from 'react';
 
 const ExpenseForm = () =>{
 
+    const submitHandler =(event) =>{
+        event.preventDefault();
+        
+        const expenseData={
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
+        }
+        console.log(expenseData)
+    }
+
     const[enteredTitle, setEnteredTitle] = useState('');
     const[enteredAmount, setEnteredAmount] = useState('');
     const[enteredDate, setEnteredDate] = useState('');
@@ -17,23 +28,23 @@ const ExpenseForm = () =>{
         setEnteredDate(event.target.value)
     }
     return(
-        <form>
+        <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
             <div className='new-expense__control'>
                 <label>Expense title</label>
-                <input type="text" onChange={titleChangeHandler}/>
+                <input type="text" name="title" onChange={titleChangeHandler}/>
             </div>
             <div className='new-expense__control'>
                 <label>Expense Amount</label>
-                <input type="number" min='0.01' step='0.01' onChange={amountChangeHandler}/>
+                <input type="number" name="amount" min='0.01' step='0.01' onChange={amountChangeHandler}/>
             </div>
             <div className='new-expense__control'>
                 <label>Date</label>
-                <input type="date" min='2019-01-01' max='2022-12-31' onChange={dateChangeHandler}/>
+                <input type="date" name="date" min='2019-01-01' max='2022-12-31' onChange={dateChangeHandler}/>
             </div>
         </div>
         <div className='new-expense__actions'>
-            <button type='submit'>Add Expense</button>
+            <button type='submit' >Add Expense</button>
         </div>
         </form>
     );
