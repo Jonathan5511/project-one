@@ -10,10 +10,15 @@ const App =() => {
     { id: "4", date: new Date(2023, 1, 14), title: "Laptop", price: 200 },
   ];
 
+  const addExpenseHandler = (expense) =>{
+    console.log('inApp.js');
+    console.log(expense);
+  }
+
   return (
     <div>
       <h1>Let's get Started</h1>
-      <NewExpense></NewExpense>
+      <NewExpense  onAddExpense={addExpenseHandler}/>
       <Expenses expenses={expenses}></Expenses>
       
     </div>
